@@ -1,0 +1,51 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Default body styles */
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+}
+
+input{
+    padding: 10px;
+    margin: 10px 20px;
+}
+
+button{
+   margin: 10px;
+    font-size: large;
+}
+
+.box{
+    height:500px;
+    width: 500px;
+    background-color: red;
+}
+
+
+.page1{
+    height: 100vh;
+    width: 100%;
+    background-color: #111;
+}
+
+.page2{
+    height: 100vh;
+    width: 100%;
+    background-color: #222;
+}
+
+.page3{
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+}
