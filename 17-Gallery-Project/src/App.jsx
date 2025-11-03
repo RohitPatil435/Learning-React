@@ -1,36 +1,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "./components/Card";
+import Buttons from "./components/Buttons";
 
 const App = () => {
 
   const [userData, setUserData] = useState([])
+  const [index, setIndex] = useState(1)
 
   const getData = async () => {
-    const response = await axios.get('https://picsum.photos/v2/list?page=3&limit=15')
+    const response = await axios.get(`https://picsum.photos/v2/list?page=${index}&limit=9`)
     setUserData(response.data)
   };
 
-  useEffect(function(){
+  useEffect(function () {
     getData()
-  },[])
+  }, [index])
 
-  let printUserData = <h3 className="text-gray-400 text-xs">No data</h3>
+  let printUserData = <h3 className="text-gray-300 font-semibold text-xs absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Loading...</h3>
 
   if (userData.length > 0) {
     printUserData = userData.map(function (elem, idx) {
       return <div key={idx}>
-        <a href={elem.url} target="_blank">
-          <div className="h-40 w-44 overflow-hidden bg-white rounded-xl">
-          <img className="h-full w-full object-cover " src={elem.download_url} alt="" />
-        </div>
-        <h2 className="font-bold text-lg">{elem.author}</h2>
-        </a>
+        <Card elem={elem} />
       </div>
     });
   }
 
   return (
     <div className="bg-black h-screen p-5 text-white overflow-auto">
+    
       {/* <button
         onClick={getData}
         className="bg-green-600 active:scale-95 text-white px-5 py-2 rounded"
@@ -38,10 +37,14 @@ const App = () => {
         Get data
       </button> */}
 
-      <div className="flex flex-wrap p-4 gap-3">
+      <div className="flex h-[90%] flex-wrap p-4 gap-3">
         {printUserData}
       </div>
-
+ 
+        <div>
+          <Buttons  index={index} setIndex={setIndex} setUserData={setUserData} />
+        </div>
+       
     </div>
   );
 };
