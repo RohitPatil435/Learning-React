@@ -1,0 +1,49 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+html,
+body {
+ height: 100%;
+ width: 100%;
+}
+
+body{
+  background-color: black;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  font-weight: 900;
+  white-space: nowrap;
+  text-decoration: underline;
+}
+
+.nav{
+  font-size: 30px;
+  display: flex;
+  padding: 20px 40px;
+  background-color: rgb(34, 143, 143);
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+.nav div{
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+  font-size: 20px; 
+
+}
